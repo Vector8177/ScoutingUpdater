@@ -16,7 +16,17 @@ if __name__ == '__main__':
             print("received qr code")
             a, _, _ = detector.detectAndDecode(img)
 
-            print(str(a))
+            dict_data = dict((x.strip(), y.strip())
+                             for x, y in (element.split('=')
+                                          for element in a.split(';')))
+
+            strdata = list(str(element) + " : " +
+                           dict_data.get(element) + "\n" for element in dict_data)
+
+            for i in strdata:
+                print(i)
+
+            break
 
         if cv.waitKey(1) == ord("q"):
             break

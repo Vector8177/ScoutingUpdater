@@ -1,12 +1,13 @@
+from time import sleep
 import cv2 as cv
-import webbrowser
+import csv
+
 
 if __name__ == '__main__':
     cap = cv.VideoCapture(1)
     detector = cv.QRCodeDetector()
 
     while cap.isOpened():
-        print("capture running")
         _, img = cap.read()
         cv.imshow("QRCODEscanner", img)
 
@@ -14,19 +15,23 @@ if __name__ == '__main__':
 
         if a:
             print("received qr code")
-            a, _, _ = detector.detectAndDecode(img)
+            dat = a.split("\t")
 
-            dict_data = dict((x.strip(), y.strip())
-                             for x, y in (element.split('=')
-                                          for element in a.split(';')))
+            print(str(dat))
 
-            strdata = list(str(element) + " : " +
-                           dict_data.get(element) + "\n" for element in dict_data)
+            cv.putText(img, "Detected QR Code!", (200, 200),
+                       cv.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255))
 
-            for i in strdata:
-                print(i)
+            cv.imshow("QRCODEscanner", img)
 
-            break
+            with open('current.csv', 'a') as f:
+                writer = csv.writer(f)
+
+                writer.writerow(dat)
+
+            sleep(7.5)
+
+            print("Starting cap again")
 
         if cv.waitKey(1) == ord("q"):
             break

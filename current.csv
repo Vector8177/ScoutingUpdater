@@ -1,4 +1,0 @@
-Rm,3,R1,5431,false,false,right,true,1,0,0,1,0,0,cube,false,false,2,3,0,0,2,0,SUBSTATION,2,false,DOCK ENGAGE,2,3,x,false,false,false,undefined
-JW,3,B1,5414,false,true,left,true,0,0,0,0,0,2,none,false,false,2,1,0,1,0,0,BOTH,7,false,DOCK ENGAGE,3,3,2,false,false,false,undefined
-IM,5,R3,2582,false,true,right,true,1,0,0,0,0,0,none,false,false,4,2,0,1,0,0,BOTH,7,false,DOCK,3,2,x,false,false,false,undefined
-MLM,3,B2,5414,false,false,left,true,0,0,0,0,0,2,cube,false,false,3,2,0,1,0,1,BOTH,0,true,DOCK ENGAGE,2,2,x,false,false,false,Shot a cube onto their teammates bot
